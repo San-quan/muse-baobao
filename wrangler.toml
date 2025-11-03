@@ -15,9 +15,10 @@ bindings = [
 
 [vars]
 # DEFAULT_SOURCES can be set as a secret via `wrangler secret put DEFAULT_SOURCES` or kept here for testing
-DEFAULT_SOURCES = [
+DDEFAULT_SOURCES = [
   "https://cGVmOmFyZUAzNi4yMTIuMjIzLjIzNDoxMTYwNA?method=auto",
   "https://sanbao66.6069996.workers.dev/93a56329-356f-18cd-ddef-bc584e0be898/sub",
-  "https://s00.btfpi.cn/ss?token=c80992d6becc2bc2ae5ec7b5b0054
+  "https://s00.btfpi.cn/ss?token=c80992d6becc2bc2ae5ec7b5b0054bde"
+]
 
 # Route for custom domain (bind in Cloudflare Dashboard): pay71.snk567.cc/cc
