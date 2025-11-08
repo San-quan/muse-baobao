@@ -1,0 +1,26 @@
+{
+  "inbounds": [
+    {
+      "port": 10000,
+      "protocol": "vless",
+      "settings": {
+        "clients": [
+          { "id": "REPLACE_WITH_UUID", "flow": "" }
+        ],
+        "decryption": "none"
+      },
+      "streamSettings": {
+        "network": "ws",
+        "wsSettings": { "path": "/vless" }
+      }
+    }
+  ],
+  "outbounds": [
+    { "protocol": "freedom", "settings": {} }
+  ],
+  "log": {
+    "access": "/var/log/xray_access.log",
+    "error": "/var/log/xray_error.log",
+    "loglevel": "warning"
+  }
+}
