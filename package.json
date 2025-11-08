@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "完美适配星链。",
   "main": "src/index.js",
-  "type": "module",
+  "type": "commonjs",
   "scripts": {
     "start": "node ./src/index.js",
     "lint": "eslint \"src/**/*.{js,mjs}\" --max-warnings=0",

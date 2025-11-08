@@ -2,18 +2,20 @@
  * Utility functions for museStarlinkpay71
  */
 
-function isValidIPv4 (ip) {
+function isValidIPv4(ip) {
   const ipv4Regex = /^(\d{1,3}\.){3}\d{1,3}$/
-  if (!ipv4Regex.test(ip)) return false
+  if (typeof ip !== 'string' || !ipv4Regex.test(ip)) return false
 
   const parts = ip.split('.')
   return parts.every(part => {
-    const num = parseInt(part, 10)
-    return num >= 0 && num <= 255
+    // 确保每段都是纯数字（避免 '01', '1a' 等问题被 parse 接受）
+    if (!/^\d+$/.test(part)) return false
+    const num = Number(part)
+    return Number.isInteger(num) && num >= 0 && num <= 255
   })
 }
 
-function greet (name = 'world') {
+function greet(name = 'world') {
   return `Hello, ${name}! This repo integrates with Starlink.`
 }
 
