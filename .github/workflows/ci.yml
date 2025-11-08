@@ -1,15 +1,53 @@
 name: CI
 
-on: [push, pull_request]
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
+    env:
+      HUSKY: 0
     steps:
     - uses: actions/checkout@v4
-    - uses: actions/setup-node@v4
+      with:
+        fetch-depth: 0
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
       with:
         node-version: '18'
-    - run: npm install
-    - run: npm run lint
-    - run: npm test
+        cache: 'npm'
+    
+    - name: Install dependencies
+      run: npm ci
+    
+    - name: Run linting
+      run: npm run lint
+    
+    - name: Run tests
+      run: npm test
+
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Deploy to VPS
+      uses: appleboy/ssh-action@v1.0.3
+      with:
+        host: ${{ secrets.VPS_HOST }}
+        username: ${{ secrets.VPS_SSH_USER }}
+        key: ${{ secrets.VPS_SSH_PRIVATE_KEY }}
+        script: |
+          cd /root/museStarlinkpay71
+          git pull origin main
+          npm ci
+          npm run lint
+          npm test
