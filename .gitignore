@@ -1,0 +1,11 @@
+/node_modules
+/dist
+/.env
+/.cache
+.DS_Store
+coverage
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.pem
+*.key
