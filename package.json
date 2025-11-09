@@ -1,9 +1,15 @@
-{"name": "museStarlinkpay71-skeleton",
- "version": "0.0.0",
- "private": true,
- "main": "src/index.js",
- "scripts": {
- "start": "node src/index.js",
- "test": "echo \"no tests yet\" && exit 0"
- },
- "engines": { "node": ">=14" }}
+{
+  "name": "museStarlinkpay71-skeleton",
+  "version": "0.0.0",
+  "private": true,
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "lint": "echo \"no linting configured yet\" && exit 0",
+    "build": "echo \"no build configured yet\" && exit 0",
+    "test": "echo \"no tests yet\" && exit 0"
+  },
+  "engines": {
+    "node": ">=14"
+  }
+}
