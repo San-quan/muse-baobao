@@ -6,8 +6,8 @@
 
 快速开始
 1. 克隆仓库
-   git clone git@github.com:San-quan/museStarlinkpay71.git
-   cd museStarlinkpay71
+   git clone git@github.com:San-quan/muse-baobao.git
+   cd muse-baobao
 
 2. 安装依赖
    npm ci
@@ -18,6 +18,17 @@
 
 4. 本地运行（示例）
    node ./src/index.js
+
+Cloudflare Worker 部署
+1. 复制示例配置
+   cp wrangler.sample.toml wrangler.toml
+
+2. 编辑 `wrangler.toml`，填写 `account_id` 和 `BACKEND_ORIGIN`
+   [vars]
+   BACKEND_ORIGIN = "https://YOUR_VPS_DOMAIN_OR_ORIGIN:10000"
+
+3. 发布 Worker
+   npx wrangler publish
 
 维护与贡献
 - 提交前请运行 `npm run format && npm run lint && npm test`
